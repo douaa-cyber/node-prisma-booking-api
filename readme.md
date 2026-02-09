@@ -1,7 +1,7 @@
 # Booking API (Node.js + Prisma + MySQL)
 
 Backend professionnel pour un système de réservation de rendez-vous.  
-Architecture modulaire inspirée des pratiques “LinkedIn/Pro”.  
+Architecture modulaire inspirée des pratiques “LinkedIn/Pro”.
 
 ---
 
@@ -29,3 +29,21 @@ Architecture modulaire inspirée des pratiques “LinkedIn/Pro”.
 
 ## 🏗 Structure du projet
 
+booking-api/
+├─ prisma/ # Schema Prisma, migrations, seed data
+├─ src/
+│ ├─ app.ts # Express app configuration (middlewares, routes)
+│ ├─ server.ts # Entry point: start server
+│ ├─ config/ # DB, logger
+│ ├─ common/ # Middleware, utils, types, errors
+│ ├─ modules/ # Features: users, customers, services, appointments, auth
+│ ├─ routes/ # Central route aggregator
+│ └─ jobs/ # Background jobs (e.g., reminders)
+│  
+├─ tests/ # Unit & integration tests
+├─ .env # Variables d'environnement
+├─ package.json
+├─ tsconfig.json
+└─ README.md
+
+## 🚀 Installation
