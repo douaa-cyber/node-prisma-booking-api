@@ -29,51 +29,34 @@ Architecture modulaire inspirée des pratiques “LinkedIn/Pro”.
 
 ## 🏗 Structure du projet
 
+```text
 booking-api/
-├─ prisma/ # Schema Prisma, migrations, seed data
-├─ src/
-│ ├─ app.ts # Express app configuration (middlewares, routes)
-│ ├─ server.ts # Entry point: start server
-│ ├─ config/ # DB, logger, environment variables
-│ │ ├─ db.ts
-│ │ ├─ env.ts
-│ │ └─ logger.ts
-│ ├─ common/ # Middleware, utils, types, errors
-│ │ ├─ middleware/
-│ │ │ ├─ error.middleware.ts
-│ │ │ ├─ notFound.middleware.ts
-│ │ │ └─ validate.middleware.ts
-│ │ ├─ utils/
-│ │ │ ├─ date.ts
-│ │ │ ├─ pagination.ts
-│ │ │ └─ apiFeatures.ts
-│ │ ├─ types/
-│ │ │ └─ express.d.ts
-│ │ └─ errors/
-│ │ ├─ AppError.ts
-│ │ └─ catchAsync.ts
-│ ├─ modules/ # Features: users, customers, services, appointments, auth
-│ │ ├─ auth/
-│ │ │ ├─ auth.controller.ts
-│ │ │ ├─ auth.service.ts
-│ │ │ ├─ auth.repository.ts
-│ │ │ ├─ auth.routes.ts
-│ │ │ └─ auth.schema.ts
-│ │ ├─ users/
-│ │ ├─ customers/
-│ │ ├─ services/
-│ │ ├─ availability/
-│ │ └─ appointments/
-│ ├─ routes/ # Central route aggregator
-│ │ └─ index.ts
-│ └─ jobs/ # Background jobs (e.g., reminders)
-│ └─ reminder.job.ts
-├─ tests/ # Unit & integration tests
-├─ .env # Variables d'environnement
-├─ package.json
-├─ tsconfig.json
-└─ README.md
-
+├── prisma/                 # Schéma Prisma & Migrations
+│   ├── schema.prisma
+│   └── seed.ts
+├── src/
+│   ├── app.ts              # Configuration Express (Middlewares, Routes)
+│   ├── server.ts           # Point d'entrée du serveur
+│   ├── config/             # DB, Logger, Variables d'env
+│   │   ├── db.ts
+│   │   └── env.ts
+│   ├── common/             # Logique partagée & Utilitaires
+│   │   ├── middleware/     # Auth, Error handling, Validation
+│   │   ├── utils/          # Gestion des dates, Pagination
+│   │   └── errors/         # Classes d'erreurs personnalisées
+│   ├── modules/            # Logique Métier (Modulaire)
+│   │   ├── auth/           # Login, Register, JWT
+│   │   ├── users/          # Gestion du staff/admin
+│   │   ├── customers/      # Gestion des clients
+│   │   ├── services/       # Catalogue des prestations
+│   │   └── appointments/   # Réservations & Disponibilités
+│   ├── routes/             # Agrégateur central des routes
+│   └── jobs/               # Tâches de fond (Rappels par mail)
+├── tests/                  # Tests unitaires et d'intégration
+├── .env                    # Variables d'environnement
+├── package.json
+└── tsconfig.json
 ---
 
 ## 🚀 Installation
+```
