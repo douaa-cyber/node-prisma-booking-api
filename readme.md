@@ -56,7 +56,9 @@ booking-api/
 ├── .env                    # Variables d'environnement
 ├── package.json
 └── tsconfig.json
+
+```
+
 ---
 
 ## 🚀 Installation
-```
