@@ -14,6 +14,8 @@ model User{
   role     String
   email    String @unique
   password String
+  createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
   appointments Appointment[]
 }
 
@@ -21,7 +23,10 @@ model Customer{
   id Int @id @default(autoincrement())
   name String 
   phone String
+  createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
   appointments Appointment[]
+
 }
 
 enum AppointmentStatus {
@@ -32,11 +37,12 @@ enum AppointmentStatus {
 model Appointment{
   id Int @id @default(autoincrement())
   date DateTime
-  time String
   userId Int
   customerId Int
   serviceId Int
-  status AppointmentStatus
+  status AppointmentStatus @default(PENDING)
+  createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
   user User @relation(fields: [userId], references: [id])
   customer Customer @relation(fields: [customerId], references: [id])
   service Service @relation(fields:[serviceId], references:[id])
@@ -47,5 +53,7 @@ model Service{
   name String
   description String
   price Float
+  createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
   appointments Appointment[]
 }

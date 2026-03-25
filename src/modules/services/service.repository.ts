@@ -1,7 +1,9 @@
 import prisma from "../../config/db";
 
+import { Prisma } from "../../generated/prisma/client"; // path to your generated client
+
 export const serviceRepository = {
-  create(data: { name: string; description: string; price: number }) {
+  create(data: Prisma.ServiceCreateInput) {
     return prisma.service.create({ data });
   },
 
@@ -19,8 +21,7 @@ export const serviceRepository = {
 
   update(
     id: number,
-    data: { name?: string; description?: string; price?: number },
-  ) {
+    data:Prisma.ServiceUpdateInput ) {
     return prisma.service.update({
       where: { id },
       data,
